@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class SinglyLinkedList<Item> {
     private Node head;
+    private Node tail;
     private int size;
 
     private class Node {
@@ -18,6 +19,7 @@ public class SinglyLinkedList<Item> {
 
     public SinglyLinkedList(){
         this.head = null;
+        this.tail = null;
         this.size = 0;
     }
 
@@ -25,13 +27,11 @@ public class SinglyLinkedList<Item> {
         Node newNode = new Node(data);
         if (head == null){
             head = newNode;
+            tail = newNode;
         }
         else {
-            Node temp = head;
-            while (temp.next != null){
-                temp = temp.next;
-            }
-            temp.next = newNode;
+            tail.next = newNode;
+            tail = newNode;
         }
         size++;
     }
@@ -47,6 +47,10 @@ public class SinglyLinkedList<Item> {
 
         head = head.next;
         size--;
+
+        if (head == null) {
+            tail = null;
+        }
         return removedItem;
     }
 
@@ -67,6 +71,9 @@ public class SinglyLinkedList<Item> {
         }
 
         if (current.next != null){
+            if (current.next == tail) {
+                tail = current;
+            }
             current.next = current.next.next;
             size--;
             return true;
@@ -112,5 +119,6 @@ public class SinglyLinkedList<Item> {
         }
 
         linklist.printLinkedList();
+        sc.close();
     }
 }
