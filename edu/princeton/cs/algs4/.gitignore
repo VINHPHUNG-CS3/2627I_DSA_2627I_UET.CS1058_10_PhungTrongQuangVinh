@@ -1,0 +1,23 @@
+# Bỏ qua thư mục node_modules trong dự án Node.js
+node_modules/
+
+# Bỏ qua file chứa thông tin bảo mật
+.env
+
+# Bỏ qua file rác của hệ điều hành
+.DS_Store
+Thumbs.db
+
+*.class
+
+target/
+build/
+out/
+bin/
+.gradle/
+
+.idea/
+*.iws
+*.iml
+*.ipr
+.idea_modules/
