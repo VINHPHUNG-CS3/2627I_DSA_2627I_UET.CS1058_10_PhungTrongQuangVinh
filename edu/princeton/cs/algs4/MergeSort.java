@@ -44,7 +44,7 @@ public class MergeSort {
         sort(a);
 
         for (Comparable i : a) {
-            System.out.println(i);
+            System.out.print(i + " ");
         }
     }
 }
